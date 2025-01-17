@@ -26,7 +26,7 @@ const projects = [
     image: 'https://img.freepik.com/free-vector/hand-drawn-flat-design-sudoku-game-design_23-2149288592.jpg?w=900&t=st=1658741558~exp=1658742158~hmac=50fc21a64d0aecadccb5de6150d4375aa5392b63fc0fbee94729bad38c240d57',
     technologies: ['React', 'Tailwind CSS', 'JavaScript'],
     liveLink: 'https://sudoku-puzzle-solver-ia.netlify.app/',
-    githubLink: 'https://github.com/imranalidina/soccer-training-app',
+    githubLink: 'https://github.com/imranalidina/Sudoku-Solver-with-AC-3-Algorithm',
   },
   // Add more projects as needed
 ];
@@ -62,7 +62,7 @@ const Portfolio: React.FC = () => {
             <div className={`bg-gray-800 flex items-center justify-center p-6 
               ${project.title === "Fantasy Application - PM Men's League"
                 ? 'h-80 sm:h-96 md:h-[420px]' 
-                : 'h-64 sm:h-72 md:h-80'
+                : 'h-74 sm:h-72 md:h-80'
               }`}
             >
               <img 

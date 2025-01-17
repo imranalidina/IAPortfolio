@@ -1,47 +1,25 @@
-import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-scroll';
 
 const Hero: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = ref.current;
-      if (element) {
-        const scrollPosition = window.scrollY;
-        element.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section id="hero" ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
-      <motion.div 
-        className="absolute inset-0 z-0"
-        style={{ y }}
-      >
+    <section 
+      id="hero" 
+      className="relative h-screen flex items-center justify-center bg-black"
+    >
+      <div className="absolute inset-0 bg-black">
         <video
           autoPlay
           loop
           muted
-          className="object-cover w-full h-full opacity-50"
+          className="object-cover w-full h-full opacity-30"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black opacity-75"></div>
-      </motion.div>
+      </div>
       
       <div className="relative z-10 text-center text-white">
         <motion.h1
@@ -69,7 +47,7 @@ const Hero: React.FC = () => {
             to="portfolio"
             smooth={true}
             duration={500}
-            className="btn-primary text-lg glow-on-hover"
+            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg"
           >
             Explore My Work
           </Link>
