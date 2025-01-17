@@ -15,7 +15,7 @@ const projects = [
   {
     title: 'Fantasy Application - PM Men’s League',
     description: 'A fantasy application for PM Men’s League players to earn points based on wins, losses, and ties with their 6-player squads. Players compete every season, and their progress is updated weekly.',
-    image: 'https://im.ge/i/IMG-0022.zeQgca', // Replace this with the actual URL of the image you provided
+    image: 'https://i.im.ge/2025/01/17/zeQgca.IMG-0022.jpeg', // Replace this with the actual URL of the image you provided
     technologies: ['React', 'Firebase', 'Framer Motion'],
     liveLink: 'https://pm-mens-league-draft.netlify.app/',
     githubLink: 'https://github.com/imranalidina/PM-DRAFT',
