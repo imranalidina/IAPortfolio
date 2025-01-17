@@ -38,7 +38,7 @@ const Testimonials: React.FC = () => {
     autoplay: true,
     autoplaySpeed: 5000,
     arrows: false,
-    dotsClass: "slick-dots custom-dots mb-4",
+    dotsClass: "slick-dots custom-dots",
   };
 
   const sliderRef = React.useRef<Slider>(null);
@@ -46,53 +46,45 @@ const Testimonials: React.FC = () => {
   return (
     <section id="testimonials" className="section-container bg-gray-900">
       <h2 className="section-title">Testimonials @ PM Academy</h2>
-      <div ref={ref} className="max-w-3xl mx-auto fade-in relative">
-        <div className="mb-24">
-          <Slider ref={sliderRef} {...settings}>
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="px-4"
-              >
-                <div className="bg-gray-800 p-6 sm:p-8 rounded-lg shadow-md">
-                  <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-green-400 mb-4 mx-auto" />
-                  <p className="text-gray-300 text-base sm:text-lg mb-6 italic">{testimonial.content}</p>
-                  <div className="flex items-center justify-center">
-                    <div className="text-center">
-                      <h4 className="font-semibold text-lg text-blue-400">{testimonial.name}</h4>
-                      <p className="text-gray-400">{testimonial.position}</p>
-                    </div>
+      <div ref={ref} className="max-w-3xl mx-auto fade-in relative testimonials-container px-12">
+        <button 
+          onClick={() => sliderRef.current?.slickPrev()}
+          className="absolute left-0 top-1/2 -translate-y-1/2 nav-arrow"
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <Slider ref={sliderRef} {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="px-4"
+            >
+              <div className="bg-gray-800 p-6 sm:p-8 rounded-lg shadow-md">
+                <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-green-400 mb-4 mx-auto" />
+                <p className="text-gray-300 text-base sm:text-lg mb-6 italic">{testimonial.content}</p>
+                <div className="flex items-center justify-center">
+                  <div className="text-center">
+                    <h4 className="font-semibold text-lg text-blue-400">{testimonial.name}</h4>
+                    <p className="text-gray-400">{testimonial.position}</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </Slider>
-        </div>
-        
-        <div className="flex flex-col items-center gap-6 mt-4 pb-8">
-          <div className="flex gap-4">
-            {/* Dots are handled by Slider component */}
-          </div>
-          <div className="flex items-center gap-8">
-            <button 
-              onClick={() => sliderRef.current?.slickPrev()}
-              className="p-2 text-gray-400 hover:text-blue-400 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button 
-              onClick={() => sliderRef.current?.slickNext()}
-              className="p-2 text-gray-400 hover:text-blue-400 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
+              </div>
+            </motion.div>
+          ))}
+        </Slider>
+
+        <button 
+          onClick={() => sliderRef.current?.slickNext()}
+          className="absolute right-0 top-1/2 -translate-y-1/2 nav-arrow"
+          aria-label="Next testimonial"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
     </section>
   );
