@@ -61,8 +61,8 @@ const Portfolio: React.FC = () => {
           >
             <div className={`bg-gray-800 flex items-center justify-center p-6 
               ${project.title === "Fantasy Application - PM Men's League"
-                ? 'h-80 sm:h-96 md:h-[420px]'
-                : 'h-74 sm:h-72 md:h-80'
+                ? 'h-80 sm:h-96 md:h-[420px]' 
+                : 'h-64 sm:h-72 md:h-80'
               }`}
             >
               <img 
